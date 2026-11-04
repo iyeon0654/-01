@@ -16,8 +16,8 @@ docker run -d -p 8080:80 mysite
 ## 실행 환경
 - OS: Windows (Git Bash / UCRT64)
 - Shell: bash
-- Docker: (← docker --version 결과)
-- Git: (← git --version 결과)
+- Docker: Docker version 29.9.2, build a82e528
+- Git: git version 2.56.0.windows.4
 
 ## 수행 체크리스트
 - [x] 터미널 기본 조작 및 폴더 구성
