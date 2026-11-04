@@ -53,3 +53,9 @@ $ MSYS_NO_PATHCONV=1 docker exec vol-test4 cat /usr/share/nginx/html/test.txt
 - 문제: echo에 느낌표 포함 시 오류
 - 원인: Bash 특수문자(!) 해석
 - 해결: 느낌표 제거
+
+## Docker 환경 정보
+- docker --version 결과: ![alt text](image.png)
+- docker images 결과: ![alt text](image-1.png)
+- docker ps -a 결과: ![alt text](image-2.png)
+- docker stats 결과: ![alt text](image-3.png)
