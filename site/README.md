@@ -54,6 +54,13 @@ $ MSYS_NO_PATHCONV=1 docker exec vol-test4 cat /usr/share/nginx/html/test.txt
 - 원인: Bash 특수문자(!) 해석
 - 해결: 느낌표 제거
 
+### 트러블슈팅 4. 8080 한글 깨짐
+- 증상: 8082는 정상인데 8080만 한글 깨짐
+- 원인: 8080은 charset 추가 전 빌드된 이미지 사용,
+        8082는 바인드마운트로 수정본 반영
+- 해결: docker build로 이미지 재빌드 후 컨테이너 재실행
+- 교훈: 이미지는 빌드 시점 파일을 품으므로 수정 시 재빌드 필수
+
 ## Docker 환경 정보
 - docker --version 결과: ![alt text](image.png)
 - docker images 결과: ![alt text](image-1.png)
