@@ -59,3 +59,8 @@ $ MSYS_NO_PATHCONV=1 docker exec vol-test4 cat /usr/share/nginx/html/test.txt
 - docker images 결과: ![alt text](image-1.png)
 - docker ps -a 결과: ![alt text](image-2.png)
 - docker stats 결과: ![alt text](image-3.png)
+
+## 🔐 Linux 권한 실습
+- chmod 644 testfile.txt (소유자 rw, 그룹/기타 r)
+- chmod 755 testdir (소유자 rwx, 그룹/기타 rx)
+- ls -l로 변경 전후 확인
