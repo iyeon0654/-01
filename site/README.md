@@ -71,3 +71,40 @@ $ MSYS_NO_PATHCONV=1 docker exec vol-test4 cat /usr/share/nginx/html/test.txt
 - chmod 644 testfile.txt (소유자 rw, 그룹/기타 r)
 - chmod 755 testdir (소유자 rwx, 그룹/기타 rx)
 - ls -l로 변경 전후 확인
+
+## 터미널 기본 조작
+![alt text](<스크린샷 2026-11-05 154607.png>)
+![alt text](<스크린샷 2026-11-05 154631.png>)
+![alt text](<스크린샷 2026-11-05 154654-1.png>)
+![alt text](<스크린샷 2026-11-05 154709.png>)
+![alt text](<스크린샷 2026-11-05 154726.png>)
+![alt text](<스크린샷 2026-11-05 154757.png>)
+![alt text](<스크린샷 2026-11-05 154822.png>)
+![alt text](<스크린샷 2026-11-05 154837.png>)
+![alt text](<스크린샷 2026-11-05 154859.png>)
+![alt text](<스크린샷 2026-11-05 154920.png>)
+![alt text](<스크린샷 2026-11-05 154936.png>)
+![alt text](<스크린샷 2026-11-05 154951.png>)
+
+## 권한 실습 (전/후 비교)
+![alt text](<스크린샷 2026-11-05 155722.png>)
+![alt text](<스크린샷 2026-11-05 155839.png>)
+
+### hello-world
+![alt text](<스크린샷 2026-11-05 162505.png>)
+![alt text](<스크린샷 2026-11-05 162527.png>)
+
+### ubuntu
+(위 4장 스크린샷)
+- docker run -it ubuntu bash 로 컨테이너 진입 ![alt text](<스크린샷 2026-11-05 160244.png>)
+- ls 로 내부 리눅스 구조 확인 ![alt text](<스크린샷 2026-11-05 160316.png>)
+- echo 로 명령 실행 후 exit ![alt text](<스크린샷 2026-11-05 160402.png>) ![alt text](<스크린샷 2026-11-05 160425.png>)
+
+### attach vs exec 차이
+- attach: 기존 메인 프로세스에 연결. exit 하면 컨테이너도 멈춤
+- exec: 새 프로세스를 실행. exit 해도 컨테이너는 계속 실행됨
+## Git 설정 확인
+![alt text](<스크린샷 2026-11-05 160801.png>)
+
+## 포트 접속 증거
+![alt text](<스크린샷 2026-11-05 161111.png>)
