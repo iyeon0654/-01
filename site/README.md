@@ -71,6 +71,15 @@ $ MSYS_NO_PATHCONV=1 docker exec vol-read cat /usr/share/nginx/html/test.txt
 - 해결: docker build로 이미지 재빌드 후 컨테이너 재실행
 - 교훈: 이미지는 빌드 시점 파일을 품으므로 수정 시 재빌드 필수
 
+### 트러블슈팅 5: favicon.ico 404 로그
+
+- 증상: docker logs 확인 시 /favicon.ico 요청에 404 발생
+- 원인: 브라우저가 자동으로 사이트 아이콘(favicon)을 요청하나,
+        이미지에 해당 파일이 없어 발생
+- 해결: 정상 동작에 영향 없음을 확인. 필요 시 favicon.ico를
+        추가하면 해소됨
+- 교훈: 404가 항상 오류는 아니며, 로그를 통해 요청 흐름을 파악할 수 있음
+
 ## Dockerfile (커스텀 이미지)
 ```dockerfile
 FROM nginx:alpine
@@ -128,3 +137,19 @@ COPY index.html /usr/share/nginx/html/index.html
 
 ## 포트 접속 증거
 ![alt text](<스크린샷 2026-11-05 161111.png>)
+
+### docker info 결과
+![alt text](image-6.png)
+![alt text](image-7.png)
+![alt text](image-8.png)
+![alt text](image-9.png)
+![alt text](image-10.png)
+![alt text](image-11.png)
+![alt text](image-12.png)
+![alt text](image-13.png)
+![alt text](image-14.png)
+![alt text](image-15.png)
+![alt text](image-16.png)
+
+### docker logs 결과
+![alt text](image-17.png)
