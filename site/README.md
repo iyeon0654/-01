@@ -30,7 +30,7 @@ docker run -d -p 8080:80 mysite
 - [x] Git 설정 + VSCode GitHub 연동
 
 ## 볼륨 영속성 검증
-\`\`\`bash
+```bash
 # 1) 데이터 쓴 컨테이너 삭제
 $ docker rm -f vol-write
 vol-write
@@ -41,7 +41,7 @@ $ MSYS_NO_PATHCONV=1 docker run -d --name vol-read -v mydata:/usr/share/nginx/ht
 # 3) 새 컨테이너에서 데이터 확인
 $ MSYS_NO_PATHCONV=1 docker exec vol-read cat /usr/share/nginx/html/test.txt
 볼륨 영속성 테스트 성공
-\`\`\`
+```
 → 컨테이너를 삭제하고 새로 만들어도 볼륨(mydata)의 데이터가 유지됨을 확인
 
 ![alt text](image-4.png)
