@@ -30,12 +30,22 @@ docker run -d -p 8080:80 mysite
 - [x] Git 설정 + VSCode GitHub 연동
 
 ## 볼륨 영속성 검증
-```bash
-$ MSYS_NO_PATHCONV=1 docker run -d --name vol-test4 -v mydata:/usr/share/nginx/html nginx
-$ MSYS_NO_PATHCONV=1 docker exec vol-test4 cat /usr/share/nginx/html/test.txt
-영속성 성공
-```
-→ 컨테이너 삭제 후에도 데이터 유지 확인
+\`\`\`bash
+# 1) 데이터 쓴 컨테이너 삭제
+$ docker rm -f vol-write
+vol-write
+
+# 2) 같은 볼륨으로 새 컨테이너 생성
+$ MSYS_NO_PATHCONV=1 docker run -d --name vol-read -v mydata:/usr/share/nginx/html nginx
+
+# 3) 새 컨테이너에서 데이터 확인
+$ MSYS_NO_PATHCONV=1 docker exec vol-read cat /usr/share/nginx/html/test.txt
+볼륨 영속성 테스트 성공
+\`\`\`
+→ 컨테이너를 삭제하고 새로 만들어도 볼륨(mydata)의 데이터가 유지됨을 확인
+
+![alt text](image-4.png)
+![alt text](<스크린샷 2026-11-05 164953.png>)
 
 ## 트러블슈팅
 
@@ -60,6 +70,16 @@ $ MSYS_NO_PATHCONV=1 docker exec vol-test4 cat /usr/share/nginx/html/test.txt
         8082는 바인드마운트로 수정본 반영
 - 해결: docker build로 이미지 재빌드 후 컨테이너 재실행
 - 교훈: 이미지는 빌드 시점 파일을 품으므로 수정 시 재빌드 필수
+
+## Dockerfile (커스텀 이미지)
+```dockerfile
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/index.html
+```
+- `FROM nginx:alpine`: 가벼운 alpine 버전 nginx 공식 이미지를 베이스로 사용
+- `COPY index.html ...`: 내 index.html을 nginx 웹 폴더에 복사
+- 빌드 명령: `docker build -t mysite .`
+- 트러블슈팅 4번처럼, HTML 수정 시 반드시 재빌드해야 반영됨
 
 ## Docker 환경 정보
 - docker --version 결과: ![alt text](image.png)
