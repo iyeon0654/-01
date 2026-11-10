@@ -115,10 +115,6 @@ COPY index.html /usr/share/nginx/html/index.html
 ![alt text](<스크린샷 2026-11-05 154936.png>)
 ![alt text](<스크린샷 2026-11-05 154951.png>)
 
-## 권한 실습 (전/후 비교)
-![alt text](<스크린샷 2026-11-05 155722.png>)
-![alt text](<스크린샷 2026-11-05 155839.png>)
-
 ### hello-world
 ![alt text](<스크린샷 2026-11-05 162505.png>)
 ![alt text](<스크린샷 2026-11-05 162527.png>)
@@ -153,3 +149,29 @@ COPY index.html /usr/share/nginx/html/index.html
 
 ### docker logs 결과
 ![alt text](image-17.png)
+
+#1 파일/폴더 생성·이동 기록
+```bash
+$ mkdir demo
+$ touch demo/sample.txt
+$ ls -l demo/
+![alt text](image-18.png)
+
+$ mv demo/sample.txt .
+$ ls -l sample.txt
+![alt text](image-19.png)
+```
+
+#2 chmod 전후 비교
+```bash
+![alt text](image-20.png)
+chmod 명령으로 파일 권한 변경을 실행함.
+
+- chmod 755 : 소유자(rwx), 그룹(r-x), 기타(r-x)
+- chmod 644 : 소유자(rw-), 그룹(r--), 기타(r--)
+
+※ 참고: 본 실습은 Windows(Git Bash/UCRT64) 환경에서 진행되어
+   NTFS 파일시스템 특성상 rwx 권한 변화가 화면에 반영되지 않음.
+   리눅스 환경에서는 chmod 755 적용 시 -rwxr-xr-x 로 표시됨.
+```
+
