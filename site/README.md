@@ -150,23 +150,27 @@ COPY index.html /usr/share/nginx/html/index.html
 ### docker logs 결과
 ![alt text](image-17.png)
 
-#1 파일/폴더 생성·이동 기록
-```bash
+## #1 파일/폴더 생성·이동 기록
+
+```
 $ mkdir demo
 $ touch demo/sample.txt
 $ ls -l demo/
+```
 ![alt text](image-18.png)
 
+```
 $ mv demo/sample.txt .
 $ ls -l sample.txt
-![alt text](image-19.png)
 ```
+![alt text](image-19.png)
 
-#2 chmod 전후 비교
-```bash
+
+## #2 chmod 전후 비교
+
 ![alt text](image-20.png)
-chmod 명령으로 파일 권한 변경을 실행함.
 
+chmod 명령으로 파일 권한 변경을 실행함.
 - chmod 755 : 소유자(rwx), 그룹(r-x), 기타(r-x)
 - chmod 644 : 소유자(rw-), 그룹(r--), 기타(r--)
 
