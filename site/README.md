@@ -156,7 +156,6 @@ COPY index.html /usr/share/nginx/html/index.html
 - **Running: 1** → 컨테이너 1개 작동 중
 - **Server Version: 29.9.2** → 엔진 정상 구동
 
-![docker info server](이미지경로)
 
 ### docker logs 결과
 ![alt text](image-17.png)
