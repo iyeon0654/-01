@@ -203,8 +203,10 @@ chmod 명령으로 파일 권한 변경을 실행함.
 
 ## Docker 빌드 결과
 
+```
 docker build -t mysite .
 
+```
 [+] Building 5.5s (7/7) FINISHED
  => [1/2] FROM nginx:alpine
  => [2/2] COPY index.html /usr/share/nginx/html/index.html
@@ -212,6 +214,8 @@ docker build -t mysite .
  => naming to docker.io/library/mysite:latest
 
 → 빌드 성공, mysite 이미지 생성 완료
+
+```
 
 ## 생성된 이미지 확인
 ![alt text](image-23.png)
