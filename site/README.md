@@ -146,6 +146,17 @@ COPY index.html /usr/share/nginx/html/index.html
 ![alt text](image-14.png)
 ![alt text](image-15.png)
 ![alt text](image-16.png)
+![alt text](image-21.png) 
+-> Docker 데몬 정상 작동 확인
+
+`docker info | grep -A 10 "Server:"` 명령으로
+데몬(Server) 정보를 확인했다.
+
+- **Server** 섹션이 에러 없이 출력됨 → 데몬 정상 연결
+- **Running: 1** → 컨테이너 1개 작동 중
+- **Server Version: 29.9.2** → 엔진 정상 구동
+
+![docker info server](이미지경로)
 
 ### docker logs 결과
 ![alt text](image-17.png)
