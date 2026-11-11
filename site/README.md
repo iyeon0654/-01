@@ -116,8 +116,20 @@ COPY index.html /usr/share/nginx/html/index.html
 ![alt text](<스크린샷 2026-11-05 154951.png>)
 
 ### hello-world
+hello-world 실행
+
 ![alt text](<스크린샷 2026-11-05 162505.png>)
 ![alt text](<스크린샷 2026-11-05 162527.png>)
+
+**실행 로그 (텍스트):**
+
+```bash
+$ docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+...
+```
 
 ### ubuntu
 (위 4장 스크린샷)
@@ -189,3 +201,17 @@ chmod 명령으로 파일 권한 변경을 실행함.
    리눅스 환경에서는 chmod 755 적용 시 -rwxr-xr-x 로 표시됨.
 ```
 
+## Docker 빌드 결과
+
+docker build -t mysite .
+
+[+] Building 5.5s (7/7) FINISHED
+ => [1/2] FROM nginx:alpine
+ => [2/2] COPY index.html /usr/share/nginx/html/index.html
+ => exporting to image
+ => naming to docker.io/library/mysite:latest
+
+→ 빌드 성공, mysite 이미지 생성 완료
+
+## 생성된 이미지 확인
+![alt text](image-23.png)
