@@ -140,8 +140,6 @@ This message shows that your installation appears to be working correctly.
 ### attach vs exec 차이
 - attach: 기존 메인 프로세스에 연결. exit 하면 컨테이너도 멈춤
 - exec: 새 프로세스를 실행. exit 해도 컨테이너는 계속 실행됨
-## Git 설정 확인
-![alt text](<스크린샷 2026-11-05 160801.png>)
 
 ## 포트 접속 증거
 ![alt text](<스크린샷 2026-11-05 161111.png>)
@@ -216,3 +214,14 @@ docker build -t mysite .
 
 ## 생성된 이미지 확인
 ![alt text](image-23.png)
+
+## Git 설정 확인
+
+### git config --list
+
+![alt text](스크린샷.png)
+
+
+### git remote -v
+
+![alt text](image-25.png)
