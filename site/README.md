@@ -199,14 +199,12 @@ chmod 명령으로 파일 권한 변경을 실행함.
 ※ 참고: 본 실습은 Windows(Git Bash/UCRT64) 환경에서 진행되어
    NTFS 파일시스템 특성상 rwx 권한 변화가 화면에 반영되지 않음.
    리눅스 환경에서는 chmod 755 적용 시 -rwxr-xr-x 로 표시됨.
-```
 
 ## Docker 빌드 결과
 
 ```
 docker build -t mysite .
 
-```
 [+] Building 5.5s (7/7) FINISHED
  => [1/2] FROM nginx:alpine
  => [2/2] COPY index.html /usr/share/nginx/html/index.html
@@ -214,7 +212,6 @@ docker build -t mysite .
  => naming to docker.io/library/mysite:latest
 
 → 빌드 성공, mysite 이미지 생성 완료
-
 ```
 
 ## 생성된 이미지 확인
