@@ -80,6 +80,39 @@ $ MSYS_NO_PATHCONV=1 docker exec vol-read cat /usr/share/nginx/html/test.txt
         추가하면 해소됨
 - 교훈: 404가 항상 오류는 아니며, 로그를 통해 요청 흐름을 파악할 수 있음
 
+### 트러블슈팅6: 포트 충돌 (port is already allocated)
+
+**증상**
+동일 포트(8080)로 두 번째 컨테이너 실행 시 아래 에러 발생:
+
+docker: Error response from daemon: ... Bind for 0.0.0.0:8080 failed: port is already allocated
+
+![alt text](<스크린샷 2026-11-14 130820-1.png>)
+
+**원인**
+이미 실행 중인 컨테이너(web1)가 8080 포트를 점유 중.
+한 포트는 하나의 프로세스만 사용 가능하므로,
+두 번째 컨테이너(web2)가 같은 포트를 바인딩하지 못해 발생.
+
+**진단 방법**
+netstat -ano | findstr :8080
+
+→ LISTENING 상태의 PID 확인 (예: 7140 = Docker 점유)
+
+![alt text](<스크린샷 2026-11-14 130921.png>)
+
+**해결 방법**
+1. 다른 포트로 실행
+   docker run -d -p 8081:80 --name web2 nginx
+
+2. 또는 기존 컨테이너 중지 후 재사용
+   docker rm -f web1
+   docker run -d -p 8080:80 --name web2 nginx
+
+**배운 점**
+- 포트는 한 번에 하나의 컨테이너만 바인딩 가능
+- netstat -ano + PID로 점유 프로세스를 추적할 수 있음
+
 ## Dockerfile (커스텀 이미지)
 ```dockerfile
 FROM nginx:alpine
@@ -267,7 +300,7 @@ docker run -p 8080:80 nginx
 #           호스트  컨테이너
 ```
 
-## 평가 항목 #14 - 절대경로 / 상대경로 사용 기준
+## 절대경로 / 상대경로 사용 기준
 
 ### 📌 개념 정리
 
@@ -285,3 +318,4 @@ docker run -p 8080:80 nginx
 
 - 절대경로 이동: `cd /c/test/교육장/site` → `pwd` 로 위치 확인
 - 상대경로 이동: `cd ..` → `cd site` 로 이동
+
